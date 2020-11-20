@@ -1,0 +1,39 @@
+{
+  "name": "wardrobe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js",
+    "dev-server": "nodemon server/index.js",
+    "build": "webpack --config webpack.config.js",
+    "react-server": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chanceknguyen/Wardrobe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chanceknguyen/Wardrobe/issues"
+  },
+  "homepage": "https://github.com/chanceknguyen/Wardrobe#readme",
+  "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.1",
+    "express": "^4.17.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
