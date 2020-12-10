@@ -1,5 +1,5 @@
 {
-  "name": "boilerplate",
+  "name": "travel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chanceknguyen/boilerplate.git"
+    "url": "git+https://github.com/chanceknguyen/travel.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chanceknguyen/boilerplate/issues"
+    "url": "https://github.com/chanceknguyen/travelissues"
   },
-  "homepage": "https://github.com/chanceknguyen/boilerplate#readme",
+  "homepage": "https://github.com/chanceknguyen/travel#readme",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
