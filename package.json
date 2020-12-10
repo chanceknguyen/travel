@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chanceknguyen/Wardrobe.git"
+    "url": "git+https://github.com/chanceknguyen/boilerplate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chanceknguyen/Wardrobe/issues"
+    "url": "https://github.com/chanceknguyen/boilerplate/issues"
   },
-  "homepage": "https://github.com/chanceknguyen/Wardrobe#readme",
+  "homepage": "https://github.com/chanceknguyen/boilerplate#readme",
   "dependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
