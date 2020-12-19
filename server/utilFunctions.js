@@ -10,7 +10,7 @@ module.exports = {
       avgtemp_f: forecast[0].day.avgtemp_f,
       condition: {
         text: forecast[0].day.condition.text,
-        icon: forecast[0].day.condition.icon
+        icon: forecast[0].day.condition.icon.substring(2)
       }
     };
     weather.secondDay = {
@@ -20,7 +20,7 @@ module.exports = {
       avgtemp_f: forecast[1].day.avgtemp_f,
       condition: {
         text: forecast[1].day.condition.text,
-        icon: forecast[1].day.condition.icon
+        icon: forecast[1].day.condition.icon.substring(2)
       }
     };
     weather.thirdDay = {
@@ -30,7 +30,7 @@ module.exports = {
       avgtemp_f: forecast[2].day.avgtemp_f,
       condition: {
         text: forecast[2].day.condition.text,
-        icon: forecast[2].day.condition.icon
+        icon: forecast[2].day.condition.icon.substring(2)
       }
     };
    return weather;
