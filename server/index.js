@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const asyncHandler = require('express-async-handler');
 require('dotenv').config();
 const utilFunctions = require ('./utilFunctions.js');
 
@@ -10,15 +11,12 @@ const app = express();
 
 app.use(express.static('./dist'));
 
-app.get('/api/:location', (req, res) => {
+app.get('/api/:location', asyncHandler(async (req, res) => {
   const location = req.params.location;
   let data = {};
-  axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${weatherAPI}&q=${location}&days=3`)
-    .then((response) => {
-      data.weather = utilFunctions.parseForecast(response);
-      res.send(data);
-    })
-});
+  let forecast = await utilFunctions.parseForecast(location);
+  res.send(forecast);
+}));
 
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
