@@ -2,6 +2,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 const weatherAPI = process.env.WEATHER_API_KEY;
+const predicthqAPI = process.env.PREDICTHQ_API_KEY;
 
 module.exports = {
 
@@ -13,7 +14,6 @@ module.exports = {
         let weather = {};
         weather.location = response.data.location;
         const forecast = response.data.forecast.forecastday;
-        console.log(response.data);
         weather.firstDay = {
           date: forecast[0].date,
           mintemp_f: forecast[0].day.mintemp_f,
@@ -47,6 +47,23 @@ module.exports = {
         resolve(weather);
       })
       .catch((err) => reject(err));
+    })
+  },
+
+  fetchLocalEvents: (data) => {
+    return new Promise(async(resolve, reject) => {
+      const location = data.forecast.location;
+      const firstDay = data.forecast.firstDay.date;
+      const lastDay = data.forecast.thirdDay.date;
+      const config = {
+        method: 'get',
+        url: `https://api.predicthq.com/v1/events?active.gte=${firstDay}&active.lte=${lastDay}&brand_unsafe.exclude=true&category=conferences%2Cexpos%2Cconcerts%2Cfestivals%2Cperforming-arts%2Csports%2Ccommunity&limit=10&location_around.origin=${location.lat}%2C${location.lon}`,
+        headers: {
+          'Authorization': `Bearer ${predicthqAPI}`,
+        }
+      };
+      let localEvents = await axios(config)
+      resolve(localEvents.data);
     })
   }
 
