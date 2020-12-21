@@ -4,10 +4,9 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom';
-import App from './App.jsx';
-import Landing from './Landing.jsx';
+import App from './App';
+import Landing from './Landing';
 
 ReactDOM.render(
 
@@ -22,5 +21,5 @@ ReactDOM.render(
     </Switch>
   </Router>,
 
-  document.getElementById('app')
+  document.getElementById('app'),
 );
