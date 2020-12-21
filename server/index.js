@@ -11,6 +11,10 @@ const app = express();
 
 app.use(express.static('./dist'));
 
+app.get('/local/*', (req, res) => {
+  res.sendFile('index.html', { root: __dirname + '/../dist'})
+})
+
 app.get('/api/:location', asyncHandler(async (req, res) => {
   const location = req.params.location;
   let data = {};
