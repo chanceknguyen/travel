@@ -17,7 +17,9 @@ app.get('/api/:location', asyncHandler(async (req, res) => {
   let forecast = await utilFunctions.parseForecast(location);
   data.forecast = forecast;
   let localEvents = await utilFunctions.fetchLocalEvents(data);
+  let localRestaurants = await utilFunctions.fetchLocalRestaurants(forecast.location.lat, forecast.location.lon)
   data.events = localEvents;
+  data.restaurants = localRestaurants;
   res.send(data);
 }));
 
