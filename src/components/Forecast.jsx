@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import ForecastCard from './ForecastCard';
 
 function Forecast({ forecast }) {
   return (
     <div>
-      <h3>{forecast.weather[0].avgtemp_f}</h3>
+      {forecast.weather.map((weather) => (
+        <ForecastCard weather={weather} />
+      ))}
     </div>
   );
 }
