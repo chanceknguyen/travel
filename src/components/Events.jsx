@@ -1,11 +1,22 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { RowSegment } from '../styles';
+import EventCard from './EventCard';
 
 function Events({ events }) {
+  if (events.length > 0) {
+    return (
+      <RowSegment>
+        {events.map((event) => (
+          <EventCard event={event} />
+        ))}
+      </RowSegment>
+    );
+  }
   return (
-    <div>
-      <h3>{events.results[0].title}</h3>
-    </div>
+    <RowSegment>
+      <div>Local events could not be located at this time.</div>
+    </RowSegment>
   );
 }
 

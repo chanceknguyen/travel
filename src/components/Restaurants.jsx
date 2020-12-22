@@ -4,11 +4,18 @@ import { RowSegment } from '../styles';
 import RestaurantCard from './RestaurantCard';
 
 function Restaurants({ restaurants }) {
+  if (restaurants.length > 0) {
+    return (
+      <RowSegment>
+        {restaurants.map((restaurant) => (
+          <RestaurantCard restaurant={restaurant} />
+        ))}
+      </RowSegment>
+    );
+  }
   return (
     <RowSegment>
-      {restaurants.map((restaurant) => (
-        <RestaurantCard restaurant={restaurant} />
-      ))}
+      <div>Local restaurants could not be located at this time.</div>
     </RowSegment>
   );
 }

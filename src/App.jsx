@@ -19,7 +19,7 @@ function App() {
     axios.get(`/api/${location}`)
       .then((response) => {
         setForecast(response.data.forecast);
-        setEvents(response.data.events);
+        setEvents(response.data.events.results);
         setRestaurants(response.data.restaurants.businesses);
         setCurrentLocation(response.data.forecast.location.name);
       });
