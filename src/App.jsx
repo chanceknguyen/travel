@@ -6,6 +6,7 @@ import Loading from 'react-loading-animation';
 import Forecast from './components/Forecast';
 import Restaurants from './components/Restaurants';
 import Events from './components/Events';
+import { AppContainer } from './styles';
 
 function App() {
   const { location } = useParams();
@@ -19,26 +20,26 @@ function App() {
       .then((response) => {
         setForecast(response.data.forecast);
         setEvents(response.data.events);
-        setRestaurants(response.data.restaurants);
+        setRestaurants(response.data.restaurants.businesses);
         setCurrentLocation(response.data.forecast.location.name);
       });
   }, []);
 
   if (currentLocation) {
     return (
-      <div>
+      <AppContainer>
         <h1>Welcome to {currentLocation}</h1>
         <Forecast forecast={forecast} />
         <Restaurants restaurants={restaurants} />
         <Events events={events} />
-      </div>
+      </AppContainer>
     );
   }
   return (
-    <div>
+    <AppContainer>
       <h1>Pulling information for {location}</h1>
       <Loading />
-    </div>
+    </AppContainer>
   );
 }
 
