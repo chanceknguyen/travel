@@ -4,7 +4,7 @@ import React from 'react';
 function Forecast({ forecast }) {
   return (
     <div>
-      <h3>{forecast.firstDay.avgtemp_f}</h3>
+      <h3>{forecast.weather[0].avgtemp_f}</h3>
     </div>
   );
 }

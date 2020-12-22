@@ -13,7 +13,8 @@ module.exports = {
         const weather = {};
         weather.location = response.data.location;
         const forecast = response.data.forecast.forecastday;
-        weather.firstDay = {
+        weather.weather = [];
+        weather.weather[0] = {
           date: forecast[0].date,
           mintemp_f: forecast[0].day.mintemp_f,
           maxtemp_f: forecast[0].day.maxtemp_f,
@@ -23,7 +24,7 @@ module.exports = {
             icon: forecast[0].day.condition.icon.substring(2),
           },
         };
-        weather.secondDay = {
+        weather.weather[1] = {
           date: forecast[1].date,
           mintemp_f: forecast[1].day.mintemp_f,
           maxtemp_f: forecast[1].day.maxtemp_f,
@@ -33,7 +34,7 @@ module.exports = {
             icon: forecast[1].day.condition.icon.substring(2),
           },
         };
-        weather.thirdDay = {
+        weather.weather[2] = {
           date: forecast[2].date,
           mintemp_f: forecast[2].day.mintemp_f,
           maxtemp_f: forecast[2].day.maxtemp_f,
@@ -50,8 +51,8 @@ module.exports = {
 
   fetchLocalEvents: (data) => new Promise((resolve, reject) => {
     const { location } = data.forecast;
-    const firstDay = data.forecast.firstDay.date;
-    const lastDay = data.forecast.thirdDay.date;
+    const firstDay = data.forecast.weather[0].date;
+    const lastDay = data.forecast.weather[2].date;
     const config = {
       method: 'get',
       url: `https://api.predicthq.com/v1/events?active.gte=${firstDay}&active.lte=${lastDay}&brand_unsafe.exclude=true&category=conferences%2Cexpos%2Cconcerts%2Cfestivals%2Cperforming-arts%2Csports%2Ccommunity&limit=10&location_around.origin=${location.lat}%2C${location.lon}`,
