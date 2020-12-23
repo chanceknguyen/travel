@@ -8,7 +8,7 @@ function Forecast({ forecast }) {
   return (
     <RowSegment>
       {forecast.weather.map((weather) => (
-        <ForecastCard weather={weather} />
+        <ForecastCard weather={weather} key={weather.date} />
       ))}
     </RowSegment>
   );

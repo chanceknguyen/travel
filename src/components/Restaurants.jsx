@@ -8,7 +8,7 @@ function Restaurants({ restaurants }) {
     return (
       <RowSegment>
         {restaurants.map((restaurant) => (
-          <RestaurantCard restaurant={restaurant} />
+          <RestaurantCard restaurant={restaurant} key={restaurant.id} />
         ))}
       </RowSegment>
     );

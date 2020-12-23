@@ -55,7 +55,7 @@ module.exports = {
     const lastDay = data.forecast.weather[2].date;
     const config = {
       method: 'get',
-      url: `https://api.predicthq.com/v1/events?active.gte=${firstDay}&active.lte=${lastDay}&brand_unsafe.exclude=true&category=conferences%2Cexpos%2Cconcerts%2Cfestivals%2Cperforming-arts%2Csports%2Ccommunity&limit=10&location_around.origin=${location.lat}%2C${location.lon}`,
+      url: `https://api.predicthq.com/v1/events?active.gte=${firstDay}&active.lte=${lastDay}&brand_unsafe.exclude=true&category=conferences%2Cexpos%2Cconcerts%2Cfestivals%2Cperforming-arts%2Csports%2Ccommunity&location_around.origin=${location.lat}%2C${location.lon}`,
       headers: {
         Authorization: `Bearer ${predicthqAPI}`,
       },
@@ -68,7 +68,7 @@ module.exports = {
   fetchLocalRestaurants: (latitude, longitude) => new Promise((resolve, reject) => {
     const config = {
       method: 'get',
-      url: `https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=${latitude}&longitude=${longitude}&limit=10`,
+      url: `https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=${latitude}&longitude=${longitude}`,
       headers: {
         Authorization: `Bearer ${yelpAPI}`,
       },

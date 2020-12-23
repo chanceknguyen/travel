@@ -8,7 +8,7 @@ function Events({ events }) {
     return (
       <RowSegment>
         {events.map((event) => (
-          <EventCard event={event} />
+          <EventCard event={event} key={event.id} />
         ))}
       </RowSegment>
     );
