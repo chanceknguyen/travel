@@ -1,12 +1,14 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React, { useState } from 'react';
 import Stars from 'simple-rating-stars';
 import RestaurantModal from './RestaurantModal';
 import { Card } from '../styles';
+import { makeTags } from '../helperFunctions';
 
 function RestaurantCard({ restaurant }) {
-  const tags = restaurant.categories.map((tag) => tag.title);
+  const tags = makeTags(restaurant.categories);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Card>
@@ -19,10 +21,10 @@ function RestaurantCard({ restaurant }) {
         stroke="#369"
       />
       <div className="restaurantText">Reviews: {restaurant.review_count}</div>
-      <div className="restaurantText">Categories: {tags.join(', ')}</div>
+      <div className="restaurantText">Categories: {tags}</div>
       <img src={restaurant.image_url} height="64" alt="restaurant" />
       <button type="button" onClick={() => setIsOpen(true)}>Open Modal</button>
-      <RestaurantModal open={isOpen} restaurant={restaurant} closeModal={() => setIsOpen(false)} />
+      <RestaurantModal open={isOpen} restaurant={restaurant} tags={tags} closeModal={() => setIsOpen(false)} />
     </Card>
   );
 }
