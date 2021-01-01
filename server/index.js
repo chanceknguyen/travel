@@ -9,6 +9,10 @@ const app = express();
 
 app.use(express.static('./dist'));
 
+app.get('/helloworld', (req, res) => {
+  res.send('Hello World!')
+});
+
 app.get('/local/*', (req, res) => {
   res.sendFile('index.html', { root: `${__dirname}/../dist` });
 });
