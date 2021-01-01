@@ -17,6 +17,12 @@ app.get('/local/*', (req, res) => {
   res.sendFile('index.html', { root: `${__dirname}/../dist` });
 });
 
+app.get('/api/test/:location', (req, res) => {
+  const { location } = req.params;
+  utilFunctions.parseForecast(location)
+    .then((forecast) => res.send(forecast));
+});
+
 app.get('/api/:location', asyncHandler(async (req, res) => {
   const { location } = req.params;
   const data = {};
