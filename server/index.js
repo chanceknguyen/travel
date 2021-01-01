@@ -18,9 +18,12 @@ app.get('/api/:location', asyncHandler(async (req, res) => {
   const data = {};
   const forecast = await utilFunctions.parseForecast(location);
   data.forecast = forecast;
-  const localEvents = await utilFunctions.fetchLocalEvents(data);
-  // eslint-disable-next-line max-len
-  const localRestaurants = await utilFunctions.fetchLocalRestaurants(forecast.location.lat, forecast.location.lon);
+  const [localEvents, localRestaurants] = await Promise.all(
+    [
+      utilFunctions.parseForecast(location),
+      utilFunctions.fetchLocalRestaurants(forecast.location.lat, forecast.location.lon),
+    ],
+  );
   data.events = localEvents;
   data.restaurants = localRestaurants;
   res.send(data);
