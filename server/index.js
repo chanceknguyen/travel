@@ -30,7 +30,7 @@ app.get('/api/:location', asyncHandler(async (req, res) => {
   data.forecast = forecast;
   const [localEvents, localRestaurants] = await Promise.all(
     [
-      utilFunctions.parseForecast(location),
+      utilFunctions.fetchLocalEvents(data),
       utilFunctions.fetchLocalRestaurants(forecast.location.lat, forecast.location.lon),
     ],
   );
