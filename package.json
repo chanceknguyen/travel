@@ -37,7 +37,8 @@
     "react-loading-animation": "^1.4.0",
     "react-router-dom": "^5.2.0",
     "simple-rating-stars": "^1.6.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "styled-components-carousel": "^0.2.0"
   },
   "devDependencies": {
     "eslint": "^7.16.0",
