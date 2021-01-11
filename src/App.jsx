@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Loading from 'react-loading-animation';
+import Navbar from './components/Navbar';
 import Forecast from './components/Forecast';
 import Restaurants from './components/Restaurants';
 import Events from './components/Events';
@@ -15,19 +16,25 @@ function App() {
   const [events, setEvents] = useState();
   const [restaurants, setRestaurants] = useState();
 
-  useEffect(() => {
-    axios.get(`/api/${location}`)
+  const getLocalInfo = (local) => {
+    setCurrentLocation(null);
+    axios.get(`/api/${local}`)
       .then((response) => {
         setForecast(response.data.forecast);
         setEvents(response.data.events.results);
         setRestaurants(response.data.restaurants.businesses);
         setCurrentLocation(response.data.forecast.location.name);
       });
+  };
+
+  useEffect(() => {
+    getLocalInfo(location);
   }, []);
 
   if (currentLocation) {
     return (
       <AppContainer>
+        <Navbar getLocalInfo={getLocalInfo} />
         <h1>Welcome to {currentLocation}</h1>
         <Forecast forecast={forecast} />
         <Restaurants restaurants={restaurants} />
