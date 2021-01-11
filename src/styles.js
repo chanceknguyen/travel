@@ -15,6 +15,8 @@ const RowSegment = styled.div`
 `;
 
 const Card = styled.div`
+  width: 200px;
+  height: 300px;
   display: flex;
   flex-flow: column;
   border: 1px solid black;

@@ -22,7 +22,6 @@ function RestaurantCard({ restaurant }) {
       />
       <div className="restaurantText">Reviews: {restaurant.review_count}</div>
       <div className="restaurantText">Categories: {tags}</div>
-      <img src={restaurant.image_url} height="64" alt="restaurant" />
       <button type="button" onClick={() => setIsOpen(true)}>Open Modal</button>
       <RestaurantModal open={isOpen} restaurant={restaurant} tags={tags} closeModal={() => setIsOpen(false)} />
     </Card>
