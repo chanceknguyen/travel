@@ -9,11 +9,39 @@ function Events({ events }) {
     return (
       <RowSegment>
         <Carousel
-          // center
-          showArrows
-          // showIndicator
-          swipeable
-          slidesToShow={5}
+          slidesToShow={3}
+          center
+          centerPadding={30}
+          breakpoints={[
+            {
+              size: 200,
+              settings: {
+                slidesToShow: 1,
+                showArrows: false,
+                showIndicator: true,
+                swipeable: true,
+              },
+            },
+            {
+              size: 600,
+              settings: {
+                slidesToShow: 3,
+                showArrows: false,
+                showIndicator: true,
+                swipeable: true,
+              },
+            },
+            {
+              size: 1000,
+              settings: {
+                slidesToShow: 4,
+                showArrows: true,
+                showIndicator: true,
+                center: true,
+                swipeable: true,
+              },
+            },
+          ]}
         >
 
           {events.map((event) => (
