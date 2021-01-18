@@ -1,12 +1,13 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { format, parseISO } from 'date-fns';
 import { Card } from '../styles';
 
 function ForecastCard({ weather }) {
   return (
     <Card>
-      <p>Date: {weather.date}</p>
+      <p>{format(parseISO(weather.date), "PPPP")}</p>
       <p>Min Temp (°F): {weather.mintemp_f}</p>
       <p>Max Temp (°F): {weather.maxtemp_f}</p>
       <p>Avg Temp (°F): {weather.avgtemp_f}</p>
